@@ -1,7 +1,6 @@
 from collections import deque
 
-from gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
-
+from sokoban_env_fast.gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 from utils.utils_sokoban import HashableNumpyArray
 
 

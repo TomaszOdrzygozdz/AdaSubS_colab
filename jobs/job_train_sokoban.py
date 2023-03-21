@@ -1,7 +1,7 @@
 import time
 
 from goal_generating_networks import ConditionalGoalPredictorSokoban, \
-    GoalPredictorPixelDiff
+    GoalPredictorPixelDiffC
 from jobs.core import Job
 from supervised import DataCreatorSokoban
 from utils.general_utils import readable_num

@@ -1,7 +1,7 @@
 import time
 
 from goal_generating_networks import ConditionalGoalPredictorSokoban, \
-    GoalPredictorPixelDiff
+    GoalPredictorPixelDiffC
 from jobs.core import Job
 from supervised import DataCreatorSokoban, DataCreatorSokobanPixelDiff
 from utils.general_utils import readable_num
@@ -17,7 +17,7 @@ class JobTrainSokobanPixelDiff(Job):
                  ):
 
         # self.goal_generating_network = ConditionalGoalPredictorSokoban()
-        self.goal_generating_network = GoalPredictorPixelDiff()
+        self.goal_generating_network = GoalPredictorPixelDiffC()
         self.dataset = dataset
         self.dump_folder = dump_folder
         self.steps_into_future = steps_into_future

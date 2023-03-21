@@ -1,12 +1,12 @@
 from collections import deque
 
 import numpy as np
-from gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 
 from envs import Sokoban
 from goal_builders.sokoban.bfs_graph import BFSGraph
 from goal_builders.sokoban.goal_builder import GoalBuilder
 from goal_builders.sokoban.goal_builder_node import GoalBuilderNode
+from sokoban_env_fast.gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 from supervised.data_creator_sokoban import (
     clear_board,
     DataCreatorSokoban,

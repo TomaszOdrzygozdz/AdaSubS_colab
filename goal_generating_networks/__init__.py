@@ -8,4 +8,4 @@ def configure_goal_generating_network(goal_builder_class):
     )
 
 ConditionalGoalPredictorSokoban = configure_goal_generating_network(conditional_goal_predictor_sokoban.ConditionalGoalPredictorSokoban)
-GoalPredictorPixelDiff = configure_goal_generating_network(goal_predictor_pixel_diff.GoalPredictorPixelDiff)
+GoalPredictorPixelDiffC = configure_goal_generating_network(goal_predictor_pixel_diff.GoalPredictorPixelDiff)

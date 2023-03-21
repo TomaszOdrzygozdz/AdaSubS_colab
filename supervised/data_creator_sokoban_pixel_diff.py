@@ -3,7 +3,6 @@ import pickle
 import random
 import joblib
 
-from gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 from joblib import Parallel, delayed
 from metric_logging import log_scalar
 import numpy as np
@@ -11,6 +10,7 @@ from os.path import join, isdir
 from os import listdir
 from tqdm import tqdm
 
+from sokoban_env_fast.gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 from utils.utils_sokoban import get_field_index_from_name, \
     get_field_name_from_index, detect_dim_room, detect_num_boxes
 

@@ -12,6 +12,8 @@ from tensorflow.python.ops.math_ops import to_bfloat16
 from envs import Sokoban
 from goal_builders.sokoban.goal_builder import GoalBuilder
 from goal_builders.sokoban.goal_builder_node import GoalBuilderNode
+from goal_generating_networks.goal_predictor_pixel_diff import GoalPredictorPixelDiff
+from policies.sokoban.conditional_policy import SokobanConditionalPolicy
 from supervised.data_creator_sokoban_pixel_diff import DataCreatorSokobanPixelDiff
 from utils.general_utils import readable_num
 from utils.utils_sokoban import (
@@ -28,8 +30,7 @@ class PolicyGoalBuilderSokobanPixelDiff(GoalBuilder):
 
     def __init__(
             self,
-            goal_generating_network_class,
-            conditional_policy_network_class,
+            conditional_policy_id=None,
             max_goal_builder_tree_depth=None,
             max_goal_builder_tree_size=None,
             max_batch_size=32,
@@ -49,11 +50,8 @@ class PolicyGoalBuilderSokobanPixelDiff(GoalBuilder):
         self.dim_room = self.core_envs[0].get_dim_room()
         self.num_boxes = self.core_envs[0].get_num_boxes()
 
-        if generator_id is None:
-            self.goal_generating_network = goal_generating_network_class()
-        else:
-            self.goal_generating_network = goal_generating_network_class(model_id=generator_id)
-        self.conditional_policy_network = conditional_policy_network_class()
+        self.goal_generating_network = GoalPredictorPixelDiff(model_id=generator_id)
+        self.conditional_policy_network = SokobanConditionalPolicy(model_id=conditional_policy_id)
         self.max_goal_builder_tree_depth = max_goal_builder_tree_depth or self.DEFAULT_MAX_GOAL_BUILDER_TREE_DEPTH
         self.max_goal_builder_tree_size = max_goal_builder_tree_size or self.DEFAULT_MAX_GOAL_BUILDER_TREE_SIZE
         self.num_beams = num_beams or self.DEFAULT_NUM_BEAMS

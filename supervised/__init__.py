@@ -2,7 +2,6 @@ import gin
 
 from supervised import data_creator_sokoban
 from supervised import data_creator_sokoban_pixel_diff
-from supervised.int.representation import action_representation_pointer
 from supervised.sokoban import data_creator_policy_baseline, data_creator_conditional_policy
 
 
@@ -16,5 +15,3 @@ DataCreatorSokoban = configure_supervised(data_creator_sokoban.DataCreatorSokoba
 DataCreatorSokobanPixelDiff = configure_supervised(data_creator_sokoban_pixel_diff.DataCreatorSokobanPixelDiff)
 DataCreatorPolicyBaselineSokoban = configure_supervised(data_creator_policy_baseline.DataCreatorPolicyBaselineSokoban)
 DataCreatorConditionalPolicySokoban = configure_supervised(data_creator_conditional_policy.DataCreatorConditionalPolicySokoban)
-
-ActionRepresentationPointer = configure_supervised(action_representation_pointer.ActionRepresentationPointer)
