@@ -1,9 +1,9 @@
-attrs==20.3.0
-cloudpickle==1.6.0
-gin-config==0.4.0
-google==3.0.0
-gym==0.18.0
-gym-sokoban @ git+https://gitlab.com/awarelab/gym-sokoban.git
+!pip install attrs==20.3.0
+!pip install cloudpickle==1.6.0
+!pip gin-config==0.4.0
+!pip google==3.0.0
+!pip gym==0.18.0
+!pip gym-sokoban @ git+https://gitlab.com/awarelab/gym-sokoban.git
 joblib==1.0.1
 mrunner @ git+https://gitlab.com/awarelab/mrunner.git
 neptune-client==0.9.8
@@ -17,12 +17,4 @@ randomdict==0.2.0
 ray==0.8.5
 tblib==1.7.0
 tensorflow==2.4.1
-tqdm==4.60.0
-
-# Install torch, but make sure that torch+CUDA versions are compatible with GPU of Turing architecture
-# see: https://discuss.pytorch.org/t/cuda-error-cublas-status-internal-error-when-calling-cublascreate-handle/114341/9
-torch==1.8.1+cu111
-torchvision==0.9.1+cu111
-torchaudio==0.8.1
-
-transformers==4.5.1
+tqdm

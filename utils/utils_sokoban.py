@@ -1,6 +1,6 @@
 import itertools
 
-from gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
+from sokoban_env_fast.gym_sokoban.envs.sokoban_env_fast import SokobanEnvFast
 import matplotlib.pyplot as plt
 import numpy as np
 
