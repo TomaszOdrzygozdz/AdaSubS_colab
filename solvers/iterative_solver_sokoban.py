@@ -333,7 +333,7 @@ class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
 
             trajectory_actions = []
             for i, inter_goal in enumerate(solution):
-                print('inter_goal.path', i, len(solution), f'generator_{inter_goal.generator_id}', inter_goal.path, inter_goal.reachable_wrt_verificator)
+                # print('inter_goal.path', i, len(solution), f'generator_{inter_goal.generator_id}', inter_goal.path, inter_goal.reachable_wrt_verificator)
                 trajectory_actions += list(inter_goal.path)
                 if inter_goal.generator_id is not None:
                     generators_used[inter_goal.generator_id] += 1
