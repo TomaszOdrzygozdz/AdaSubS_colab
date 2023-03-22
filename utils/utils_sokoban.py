@@ -53,18 +53,18 @@ def save_state(state, file_name, title=None):
 def many_states_to_fig(states, titles, subtitles=None):
     def draw_and_describe(plot, state, title, subtitle):
         pic = state_to_pic(state)
-        plot.set_title(f'{title}', fontsize=10, pad=10)
+        plot.set_title(f'{title}')
         plot.axes.xaxis.set_ticklabels([])
         plot.axes.yaxis.set_ticklabels([])
-        plot.axes.text(-5, -5, f'{subtitle}', fontsize=8)
+        plot.axes.text(-5, -5, f'{subtitle}')
         plot.imshow(pic)
 
     n_states = len(states)
     if subtitles is None:
         subtitles = ['' for _ in states]
     fig, plots = plt.subplots((n_states-1)//4 + 1, 4)
-    fig.set_size_inches(4 * 2, ((n_states-1)//4 + 1) * 2.5)
-    fig.set_dpi(300)
+    # fig.set_size_inches(4 * 2, ((n_states-1)//4 + 1) * 2.5)
+    # fig.set_dpi(300)
     for idx, plot in enumerate(plots.flatten()):
         if idx >= n_states:
             plot.axis('off')

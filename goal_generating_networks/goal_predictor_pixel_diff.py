@@ -148,12 +148,12 @@ class GoalPredictorPixelDiff:
 
     def predict_pdf(self, input, condition):
         self._predictions_counter += 1
-        raw = self._model.predict([np.array([input]), np.array([condition])])[0]
+        raw = self._model.predict([np.array([input]), np.array([condition])], verbose=0)[0]
         return raw
 
     def predict_pdf_batch(self, input_boards, conditions):
         self._predictions_counter += 1
-        raw = self._model.predict([input_boards, conditions])
+        raw = self._model.predict([input_boards, conditions], verbose=0)
         return raw
 
     def save_model(self, model_id):

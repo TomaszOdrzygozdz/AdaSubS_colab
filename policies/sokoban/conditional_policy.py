@@ -244,9 +244,9 @@ class SokobanConditionalPolicy:
         self._model = load_model(model_id)
 
     def predict_actions(self, input):
-        prediction = self._model.predict(np.array([input]))[0]
+        prediction = self._model.predict(np.array([input]), verbose=0)[0]
         return list(prediction)
 
     def predict_action_batch(self, input):
-        prediction = self._model.predict(input)
+        prediction = self._model.predict(input, verbose=0)
         return prediction
