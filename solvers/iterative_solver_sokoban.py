@@ -288,7 +288,7 @@ class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
                         'value_calls': total_value_calls,
                         'subgoal_gen_calls': total_subgoal_gen_calls,
                         }
-        print('Tree metrics', tree_metrics)
+        # print('Tree metrics', tree_metrics)
 
         additional_info = dict(
             finished_cause=finished_cause,
