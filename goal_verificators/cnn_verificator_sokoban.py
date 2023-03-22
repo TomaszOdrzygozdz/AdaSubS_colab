@@ -29,7 +29,6 @@ class LogCallback(tfk.callbacks.Callback):
 
 
 def create_scheduler(drops):
-    print('Creating scheduler with following drops', drops)
     return lambda epoch, lr: drops[epoch] * lr if epoch in drops else lr
 
 

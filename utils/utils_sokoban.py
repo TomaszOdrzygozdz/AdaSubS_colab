@@ -162,5 +162,4 @@ def agent_coordinates_to_action(delta_x, delta_y):
 
 
 def create_scheduler(drops):
-    print('Creating scheduler with following drops', drops)
     return lambda epoch, lr: drops[epoch] * lr if epoch in drops else lr
