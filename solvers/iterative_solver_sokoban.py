@@ -53,8 +53,8 @@ class SolverNode:
 
 class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
     def __init__(self,
-                 goal_builder_class,
-                 value_estimator_class,
+                 goal_builder_list,
+                 value_estimator,
                  max_steps_list,
                  max_steps_in_solution_stage,
                  total_confidence_level,
@@ -89,20 +89,10 @@ class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
         if self.use_adaptive_iterations is not None:
             assert self.use_adaptive_iterations in ['best-first', 'force-longest']
 
-        def create_goal_builders(builder_id):  # builds models, preserving the nested list structure
-            if isinstance(builder_id, list):
-                return [create_goal_builders(internal_builder_id) for internal_builder_id in builder_id]
-            else:
-                goal_builder = goal_builder_class(generator_id=builder_id)
-                self.use_verificator_for_solving = goal_builder.use_verificator_for_solving
-                return goal_builder
-
-        self.goal_builders = create_goal_builders(goal_builders_list)
+        self.goal_builders = goal_builders_list
         self.iterations_list = iterations_list
 
-        print(goal_builders_list, self.goal_builders)
-
-        self.value_estimator = value_estimator_class()
+        self.value_estimator = value_estimator
 
     def construct_networks(self):
         self.value_estimator.construct_networks()
