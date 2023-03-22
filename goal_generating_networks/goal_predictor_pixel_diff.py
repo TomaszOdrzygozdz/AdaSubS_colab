@@ -67,7 +67,6 @@ class GoalPredictorPixelDiff:
     def construct_networks(self):
         if self._model is None:
             if self.model_id is None:
-                print(f'Constructing goal predictor from ID: {self.model_id}')
                 input_state = Input(batch_shape=(None, None, None, 7))
                 input_condition = Input(batch_shape=(None, None, None, 7))
 

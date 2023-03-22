@@ -53,31 +53,28 @@ class SolverNode:
 
 class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
     def __init__(self,
-                 goal_builder_list,
                  value_estimator,
-                 max_steps_list,
                  max_steps_in_solution_stage,
-                 total_confidence_level,
-                 internal_confidence_level,
                  max_goals,
                  max_tree_size,
                  max_tree_depth,
+                 max_steps_list,
+                 total_confidence_level,
+                 internal_confidence_level,
                  goal_builders_list=None,
                  iterations_list=None,
                  use_adaptive_iterations=None,
-                 num_beams=None,
                  ):
         super().__init__()
-        self.max_steps_list = max_steps_list
         self.max_steps_in_solution_stage = max_steps_in_solution_stage
-        self.total_confidence_level = total_confidence_level
-        self.internal_confidence_level = internal_confidence_level
         self.max_goals = max_goals
         self.max_tree_size = max_tree_size
         self.max_tree_depth = max_tree_depth
-        self.use_adaptive_iterations = use_adaptive_iterations
+        self.max_steps_list = max_steps_list
+        self.total_confidence_level = total_confidence_level
+        self.internal_confidence_level = internal_confidence_level
         self.use_verificator_for_solving = False
-        self.num_beams = num_beams
+        self.use_adaptive_iterations = use_adaptive_iterations
 
         # Either specify iterations or use adaptive scheme
         assert (iterations_list is not None
@@ -180,13 +177,11 @@ class BestFSIterativeSolverSokoban(GeneralSolverSokoban):
                     top_values.append(value)
 
                 current_queue_id = np.argmin(top_values)
-                print(f'id: {current_queue_id}')
             elif self.use_adaptive_iterations == 'force-longest':
                 for i, queue in enumerate(node_queues):
                     if not queue.empty():
                         current_queue_id = i
                         break
-                print(f'id: {current_queue_id}')
             else:
                 # if the iterations limit is reached, move to the next queue
                 if current_iterations >= self.iterations_list[current_queue_id]:

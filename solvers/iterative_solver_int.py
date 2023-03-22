@@ -166,7 +166,6 @@ class BestFSIterativeSolverINT(GeneralSolver):
                     if not queue.empty():
                         current_queue_id = i
                         break
-                print(f'id: {current_queue_id}')
             else:
                 # if the iterations limit is reached, move to the next queue
                 if current_iterations >= self.iterations_list[current_queue_id]:
