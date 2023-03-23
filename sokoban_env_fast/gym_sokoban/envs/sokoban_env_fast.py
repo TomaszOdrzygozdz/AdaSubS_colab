@@ -23,7 +23,7 @@ class SokobanEnvFast(gym.Env):
     }
 
     def __init__(self,
-                 dim_room=(10, 10),
+                 dim_room=(12, 12),
                  max_steps=np.inf,  # TODO(pm): what is that?
                  num_boxes=4,
                  num_gen_steps=None,
