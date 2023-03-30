@@ -12,7 +12,7 @@ class ValueEstimator:
         self._model = None
 
     def evaluate(self, state):
-        return self._model.predict(np.array([state]), verbose=0)[0][0] + self.reward_for_boxes_on_goals(state)
+        return self._model.predict(np.array([state]), verbose=0)[0][0]# + self.reward_for_boxes_on_goals(state)
 
     def construct_networks(self):
         if self._model is None:
