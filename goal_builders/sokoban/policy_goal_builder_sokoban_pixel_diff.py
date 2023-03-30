@@ -30,19 +30,19 @@ class PolicyGoalBuilderSokobanPixelDiff(GoalBuilder):
 
     def __init__(
             self,
-            conditional_policy_id=None,
+            conditional_policy_id="sokoban_networks/conditional_policy",
             max_goal_builder_tree_depth=None,
             max_goal_builder_tree_size=None,
             max_batch_size=32,
             gather_data_for_verificator=False,
             max_data_points_per_part=100_000,
-            use_verificator_for_solving=False,
-            verificator_ckpt_path=None,
-            verificator_batch_size=32,
-            ver_trash_th=0.0,
-            ver_certainty_th=0.9,
+            use_verifier_ckpt_path_for_solving=False,
+            verifier_ckpt_path=None,
+            verifier_batch_size=32,
+            verifier_trash_th=0.0,
+            verifier_certainty_th=0.9,
             num_beams=None,
-            use_beam_search=False,
+            use_beam_search=True,
             generator_id=None,
     ):
         self.max_bs = max_batch_size
@@ -74,11 +74,11 @@ class PolicyGoalBuilderSokobanPixelDiff(GoalBuilder):
         self.max_data_points_per_part = max_data_points_per_part
 
         # Params for verificator solving
-        self.use_verificator_for_solving = use_verificator_for_solving
-        self.verificator_ckpt_path = verificator_ckpt_path
-        self.verificator_batch_size = verificator_batch_size
-        self.ver_trash_th = ver_trash_th
-        self.ver_certainty_th = ver_certainty_th
+        self.use_verificator_for_solving = use_verifier_ckpt_path_for_solving
+        self.verificator_ckpt_path = verifier_ckpt_path
+        self.verificator_batch_size = verifier_batch_size
+        self.ver_trash_th = verifier_trash_th
+        self.ver_certainty_th = verifier_certainty_th
 
         if (self.use_verificator_for_solving and not self.verificator_ckpt_path):
             raise ArgumentError("Can't use verificator if no checkpoint")
@@ -317,7 +317,7 @@ class PolicyGoalBuilderSokobanPixelDiff(GoalBuilder):
             total_confidence_level,
             internal_confidence_level,
             max_goals,
-            reverse_order
+            reverse_order=True
     ):
         all_node_computations_in_graph = 0
 
